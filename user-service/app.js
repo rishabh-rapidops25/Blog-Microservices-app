@@ -19,6 +19,7 @@ connectDb();
 //connect to nats
 // connectNats();
 
+// routes for users
 app.use('/api/users', userRoutes);
 
 
@@ -27,6 +28,6 @@ app.all('*', (_req,res) => {
     logger.error('Invalid route');
     return res.status(404).json({status: 404, message: 'Invalid route'});
 })
-// routes
+
 
 module.exports = app;
