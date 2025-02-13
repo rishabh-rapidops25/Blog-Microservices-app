@@ -1,0 +1,14 @@
+{
+  "name": "blog-service",
+  "version": "1.0.0",
+  "description": "Blog Service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Rishabh Prajapati",
+  "license": "ISC",
+  "type": "commonjs"
+}

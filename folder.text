@@ -1,0 +1,94 @@
+user-service/
+│
+├── config/                  # Configurations (DB, NATS, etc.)
+│   ├── db.js                # MongoDB connection setup
+│   ├── nats.js              # NATS connection setup
+│
+├── controllers/             # Business logic for handling requests
+│   └── userController.js    # User related API functions (login, signup)
+│
+├── models/                  # Mongoose models for MongoDB
+│   └── userModel.js         # User schema (name, email, password, etc.)
+│
+├── routes/                  # API Routes
+│   └── userRoutes.js        # User related API endpoints (signup, login)
+│
+├── services/                # Service layer for external communication
+│   └── authService.js       # Handles JWT token generation and verification
+│
+├── utils/                   # Utility functions
+│   └── validation.js        # Input validation logic (email, password strength)
+│
+├── app.js                   # Main app setup
+├── server.js                # App entry point (start server)
+├── .env                     # Environment variables
+└── package.json             # Project dependencies and scripts
+
+blog-service/
+│
+├── config/                  # Configurations (DB, NATS, etc.)
+│   ├── db.js                # MongoDB connection setup
+│   ├── nats.js              # NATS connection setup
+│
+├── controllers/             # Business logic for handling requests
+│   └── blogController.js    # Blog related API functions (create, get, update, delete posts)
+│
+├── models/                  # Mongoose models for MongoDB
+│   └── blogModel.js         # Blog schema (title, content, author, etc.)
+│
+├── routes/                  # API Routes
+│   └── blogRoutes.js        # Blog related API endpoints (create, update, delete)
+│
+├── services/                # Service layer for external communication
+│   └── notificationService.js # Calls to Notification service (send email)
+│
+├── utils/                   # Utility functions
+│   └── errorHandler.js      # Handles errors in API responses
+│
+├── app.js                   # Main app setup
+├── server.js                # App entry point (start server)
+├── .env                     # Environment variables
+└── package.json             # Project dependencies and scripts
+
+notification-service/
+│
+├── config/                  # Configurations (NATS, email services)
+│   ├── nats.js              # NATS connection setup
+│   ├── email.js             # Email service configuration
+│
+├── controllers/             # Notification logic
+│   └── notificationController.js # Handles notifications (send email, push notifications)
+│
+├── services/                # Service layer for external communication
+│   └── emailService.js      # Logic for sending email notifications
+│
+├── utils/                   # Utility functions
+│   └── mailer.js            # Email sending logic (SMTP configuration)
+│
+├── app.js                   # Main app setup
+├── server.js                # App entry point (start server)
+├── .env                     # Environment variables
+└── package.json             # Project dependencies and scripts
+
+auth-service/
+│
+├── config/                  # Configurations (JWT, NATS)
+│   ├── jwt.js               # JWT token generation and verification setup
+│   ├── nats.js              # NATS connection setup
+│
+├── controllers/             # Authentication logic
+│   └── authController.js    # Auth related logic (verify token)
+│
+├── routes/                  # API Routes
+│   └── authRoutes.js        # Authentication API endpoints (verify, refresh token)
+│
+├── services/                # Service layer for external communication
+│   └── userService.js       # Communicates with the User service (user validation)
+│
+├── utils/                   # Utility functions
+│   └── jwtHelper.js         # Helper functions for working with JWT tokens
+│
+├── app.js                   # Main app setup
+├── server.js                # App entry point (start server)
+├── .env                     # Environment variables
+└── package.json             # Project dependencies and scripts
