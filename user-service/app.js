@@ -3,7 +3,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const connectDb = require('./config/db');
-const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes');
+const logger = require('./utils/logger');
 // const{connectNats} = require('./config/nats')
 
 
@@ -18,8 +19,14 @@ connectDb();
 //connect to nats
 // connectNats();
 
-
-// routes
 app.use('/api/users', userRoutes);
+
+
+// error handling middleware for no route found
+app.all('*', (_req,res) => {
+    logger.error('Invalid route');
+    return res.status(404).json({status: 404, message: 'Invalid route'});
+})
+// routes
 
 module.exports = app;
