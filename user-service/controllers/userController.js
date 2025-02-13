@@ -53,7 +53,7 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    logger.info("User logged in", { name: user.name, email });
+    logger.info("User logged in", { name: user.name, email, token });
     res.status(200).json({
       message: `${user.name} Successfully logged in`,
       name: user.name,
@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
       token,
     });
   } catch (error) {
-    console.log("Error logging in user", error.message);
+    logger.error("Error logging in", { message: error.message });
     res.status(500).json({ message: "Internal server error" });
   }
 };

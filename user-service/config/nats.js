@@ -1,6 +1,6 @@
 const NATS = require('nats');
 const logger = require('../utils/logger');
-let nc;
+let nc = null;
 
 const connectNats = async () => {
     try {
