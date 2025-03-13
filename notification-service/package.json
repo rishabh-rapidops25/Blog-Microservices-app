@@ -10,5 +10,10 @@
   "keywords": [],
   "author": "Rishabh Prajapati",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.21.2",
+    "nats": "^2.29.2",
+    "winston": "^3.17.0"
+  }
 }

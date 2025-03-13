@@ -2,27 +2,30 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 
-const { nc } = require("../config/nats");
 const logger = require("../utils/logger");
+const { publishMessage } = require("../config/publish");
 
 exports.register = async (req, res) => {
-  const { name, email, password } = req.body;
+  // const { name, email, password } = req.body;
   try {
-    const userExists = await User.findOne({ email });
-    if (userExists) {
-      logger.error("User already exists", { email });
-      return res.status(400).json({ message: "User already exists" });
-    }
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({
-      name,
-      email,
-      password: hashedPassword,
-    });
-    await newUser.save();
+    // const userExists = await User.findOne({ email });
+    // if (userExists) {
+    //   logger.error("User already exists", { email });
+    //   return res.status(400).json({ message: "User already exists" });
+    // }
+    // const hashedPassword = await bcrypt.hash(password, 10);
+    // const newUser = new User({
+    //   name,
+    //   email,
+    //   password: hashedPassword,
+    // });
+    let name = "rishabh";
+    let email = "rishi@gmail.com";
+    console.log(name, email);
+    // await newUser.save();
 
     // Publish the user created event
-    // nc.publish('user.created', JSON.stringify({ name, email }));
+    await publishMessage("user.created", JSON.stringify({ name, email }));
     logger.info("User created", { name, email });
     res
       .status(201)
